@@ -1,0 +1,117 @@
+---
+const projects = [
+  {
+    title: 'Phonauto',
+    subtitle: 'Music AI Assistant',
+    description:
+      'AI music generation with natural language composition, Monaco editor, per-track mixer, and visual timeline editing. Won Best Overall and People\'s Choice at MSU AI Club showcase.',
+    tags: ['Next.js', 'FastAPI', 'PyTorch', 'Tone.js', 'Docker'],
+    award: "Best Overall & People's Choice",
+    github: 'https://github.com/maxwmeadow/music-ai-assistant',
+    highlight: true,
+  },
+  {
+    title: 'Project Helios',
+    subtitle: 'SpartaHack 11',
+    description:
+      'Assistive navigation for blind users. YOLO11 object detection from mobile camera with spatial awareness, Gemini AI conversational guidance, and haptic feedback for hazard alerts.',
+    tags: ['React Native', 'FastAPI', 'YOLO11', 'Gemini', 'Socket.IO'],
+    award: 'SpartaHack 11',
+    github: 'https://github.com/kendalleasterly/project-helios-spartahack',
+    highlight: true,
+  },
+  {
+    title: 'jupyter_tui',
+    subtitle: null,
+    description:
+      'Terminal Jupyter notebook editor in Rust. Vim-style modal editing, live kernel execution over ZMQ, syntax highlighting, and inline image rendering via Kitty graphics protocol.',
+    tags: ['Rust', 'ZMQ', 'TUI', 'Kernel Protocol'],
+    github: 'https://github.com/breissic/jupyter-tui',
+    highlight: false,
+  },
+  {
+    title: 'Vehicle Damage Assessment',
+    subtitle: 'Auto Owners Insurance × MSU AI Club',
+    description:
+      'Instance segmentation pipeline using Mask R-CNN for vehicle damage identification, with multi-LLM integration (Claude, GPT-4, Gemini) for repair cost estimation. Industry project for Auto Owners Insurance.',
+    tags: ['PyTorch', 'Mask R-CNN', 'FastAPI', 'React', 'Multi-LLM'],
+    github: null,
+    highlight: false,
+  },
+  {
+    title: 'NFL Betting Model',
+    subtitle: null,
+    description:
+      'Elo rating system with margin-of-victory adjustments, backtested across 1,675+ games. 63.7% win/loss accuracy — within 2.9% of Vegas.',
+    tags: ['Python', 'pandas', 'SQLite', 'Statistics'],
+    github: 'https://github.com/breissic/nfl-betting-model',
+    highlight: false,
+  },
+];
+---
+
+<section id="projects" class="px-6 py-24">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="font-heading text-sm font-medium uppercase tracking-widest text-slate-500">
+      Projects
+    </h2>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      {projects.map((project) => {
+        const Tag = project.github ? 'a' : 'div';
+        const linkProps = project.github
+          ? { href: project.github, target: '_blank', rel: 'noopener noreferrer' }
+          : {};
+        return (
+          <Tag
+            {...linkProps}
+            class:list={[
+              'group rounded-xl border p-6 transition-colors duration-200',
+              project.github ? 'cursor-pointer' : '',
+              project.highlight
+                ? 'border-slate-800 hover:border-slate-700 md:col-span-2'
+                : 'border-slate-800/60 hover:border-slate-700',
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <h3 class="font-heading text-base font-semibold text-slate-100">
+                    {project.title}
+                  </h3>
+                  {project.subtitle && (
+                    <span class="text-sm text-slate-500">{project.subtitle}</span>
+                  )}
+                  {project.award && (
+                    <span class="inline-flex items-center gap-1 rounded bg-emerald-500/10 px-2 py-0.5 text-xs text-emerald-400">
+                      {project.award}
+                    </span>
+                  )}
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">{project.description}</p>
+              </div>
+              {project.github && (
+                <svg
+                  class="h-4 w-4 shrink-0 text-slate-700 transition-colors duration-200 group-hover:text-slate-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              )}
+            </div>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <span class="rounded bg-slate-800/60 px-2 py-0.5 text-xs text-slate-400">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </Tag>
+        );
+      })}
+    </div>
+  </div>
+</section>

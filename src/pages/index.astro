@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <Hero />
+    <div class="mx-auto max-w-4xl px-6">
+      <hr class="border-subtle" />
+    </div>
+    <About />
+    <div class="mx-auto max-w-4xl px-6">
+      <hr class="border-subtle" />
+    </div>
+    <Experience />
+    <div class="mx-auto max-w-4xl px-6">
+      <hr class="border-subtle" />
+    </div>
+    <Projects />
+    <div class="mx-auto max-w-4xl px-6">
+      <hr class="border-subtle" />
+    </div>
+    <Skills />
+    <div class="mx-auto max-w-4xl px-6">
+      <hr class="border-subtle" />
+    </div>
+    <Contact />
+  </main>
+
+  <!-- Scroll-triggered fade-in animations -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('section').forEach((section) => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(16px)';
+      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(section);
+    });
+
+    // Make hero visible immediately
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.style.opacity = '1';
+      hero.style.transform = 'translateY(0)';
+    }
+
+    // Add animate-in class handler
+    const style = document.createElement('style');
+    style.textContent = '.animate-in { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('section').forEach((s) => {
+        s.style.opacity = '1';
+        s.style.transform = 'none';
+        s.style.transition = 'none';
+      });
+    }
+  </script>
+</Layout>

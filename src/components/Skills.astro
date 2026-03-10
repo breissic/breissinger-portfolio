@@ -1,0 +1,49 @@
+---
+const skillGroups = [
+  {
+    label: 'Languages',
+    skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C++', 'Rust', 'SQL'],
+  },
+  {
+    label: 'AI / ML',
+    skills: ['PyTorch', 'TensorFlow', 'Keras', 'YOLO', 'Mask R-CNN', 'Gemini', 'OpenAI'],
+  },
+  {
+    label: 'Computational',
+    skills: ['NumPy', 'pandas', 'Jupyter', 'Computational Modeling'],
+  },
+  {
+    label: 'Web & Mobile',
+    skills: ['React', 'Next.js', 'React Native', 'FastAPI', 'Flask', 'NestJS', 'Tailwind CSS'],
+  },
+  {
+    label: 'Tools & Infrastructure',
+    skills: ['Linux', 'Vim', 'Git', 'Docker', 'AWS', 'PostgreSQL', 'SQLite', 'Supabase'],
+  },
+];
+---
+
+<section id="skills" class="px-6 py-24">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="font-heading text-sm font-medium uppercase tracking-widest text-slate-500">
+      Skills
+    </h2>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {skillGroups.map((group) => (
+        <div>
+          <h3 class="font-heading text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">
+            {group.label}
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {group.skills.map((skill) => (
+              <span class="rounded-lg border border-subtle bg-slate-900/40 px-3 py-1.5 text-sm text-slate-300 transition-colors duration-200 hover:border-slate-600 hover:text-slate-50">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+const experiences = [
+  {
+    role: 'Software Developer Intern',
+    company: 'SpendMatch, Inc.',
+    period: 'Current',
+    description:
+      'Building production software for the SpendMatch platform as part of the engineering team.',
+    tags: ['TypeScript', 'React', 'Full-Stack'],
+    current: true,
+  },
+  {
+    role: 'Software Developer',
+    company: 'MSU AI Club — Advanced Projects',
+    period: 'Aug 2025 — Present',
+    description:
+      'Currently building a vehicle damage assessment pipeline for Auto Owners Insurance using Mask R-CNN and multi-LLM cost estimation. Previously developed Phonauto (Music AI Assistant), which won Best Overall and People\'s Choice.',
+    tags: ['PyTorch', 'Next.js', 'FastAPI', 'Computer Vision'],
+    current: true,
+  },
+  {
+    role: 'Student Intern',
+    company: 'The Global Career Accelerator',
+    period: 'Sep 2024 — Dec 2024',
+    description:
+      'Extracted insights from enterprise datasets using SQL and Python. Built visualizations identifying market trends and consumer demand patterns.',
+    tags: ['SQL', 'Python', 'Data Analysis', 'Tableau'],
+    current: false,
+  },
+];
+---
+
+<section id="experience" class="px-6 py-24">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="font-heading text-sm font-medium uppercase tracking-widest text-slate-500">
+      Experience
+    </h2>
+
+    <div class="mt-8 space-y-0">
+      {experiences.map((exp, i) => (
+        <div class="relative pl-8 pb-10 last:pb-0">
+          {/* Timeline line */}
+          {i < experiences.length - 1 && (
+            <div class="absolute left-[5px] top-3 bottom-0 w-px bg-slate-800" aria-hidden="true"></div>
+          )}
+          {/* Timeline dot */}
+          <div class="absolute left-0 top-2" aria-hidden="true">
+            <div class:list={[
+              'h-[11px] w-[11px] rounded-full border-2',
+              exp.current ? 'border-emerald-500 bg-emerald-500/20' : 'border-slate-600 bg-slate-900',
+            ]}></div>
+          </div>
+
+          <div class="group">
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading text-lg font-semibold text-slate-50">{exp.role}</h3>
+              <span class="text-sm text-slate-500">{exp.period}</span>
+            </div>
+            <p class="mt-0.5 text-sm text-slate-500">{exp.company}</p>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{exp.description}</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {exp.tags.map((tag) => (
+                <span class="rounded-md bg-slate-800/80 px-2.5 py-0.5 text-xs font-medium text-slate-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
