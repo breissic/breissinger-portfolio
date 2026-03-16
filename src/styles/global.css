@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-slate-950: #020617;
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748b;
-  --color-slate-400: #94a3b8;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
-  --color-slate-100: #f1f5f9;
-  --color-slate-50: #f8fafc;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
+  --color-cream: #EEEBE4;
+  --color-cream-light: #F5F3EE;
+  --color-cream-dark: #E5E1D8;
+  --color-dark: #151515;
+  --color-dark-secondary: #2C2C2C;
+  --color-dark-muted: #6B6B6B;
+  --color-dark-subtle: #9B9B9B;
+  --color-red: #F54E00;
+  --color-red-light: #FF6B2B;
+  --color-yellow: #F7A501;
+  --color-yellow-light: #FDEDC8;
+  --color-blue: #1D4AFF;
+  --color-blue-light: #E0E8FF;
+  --color-border: #D4D0C8;
+  --color-border-strong: #B8B4AC;
+  --color-white: #FFFFFF;
+  --color-card: #FFFFFF;
 
-  --font-heading: 'Archivo', system-ui, sans-serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -29,21 +32,15 @@
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-slate-950);
-    color: var(--color-slate-300);
+    background-color: var(--color-cream);
+    color: var(--color-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: var(--color-emerald-500);
-    color: var(--color-slate-950);
-  }
-}
-
-@layer utilities {
-  .border-subtle {
-    border-color: color-mix(in srgb, var(--color-slate-400) 12%, transparent);
+    background-color: var(--color-yellow-light);
+    color: var(--color-dark);
   }
 }
 
